@@ -19,57 +19,66 @@ const Projects = () => {
         Projects
       </motion.h2>
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {PROJECTS.map((project, index) => (
           <motion.div
             key={index}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 80 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`mb-12 sm:mb-20 flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-12 ${
+            className={`mb-8 sm:mb-16 ${
               index % 2 !== 0 ? "lg:flex-row-reverse" : ""
             }`}
           >
-            {/* Image Section */}
-            <div className="relative group w-full lg:w-1/2 flex flex-col items-center">
-              <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-lg w-full max-w-[320px] sm:w-[380px] md:w-[420px] lg:w-[460px] h-[200px] sm:h-[250px] md:h-[270px]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 transform group-hover:scale-105"
-                />
+            {/* Box wrapper - wider on mobile */}
+            <div
+              className={`flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-8 lg:gap-12
+              w-full mx-auto ${
+                index % 2 !== 0 ? "lg:flex-row-reverse" : ""
+              } rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-0
+              bg-[#11111b] border border-stone-800 shadow-lg lg:bg-transparent lg:border-none lg:shadow-none -mx-4 sm:mx-auto`}
+            >
+              {/* Image Section - smaller on mobile */}
+              <div className="relative group w-full flex flex-col items-center">
+                <div className="overflow-hidden rounded-lg sm:rounded-xl shadow-lg w-full max-w-[240px] sm:max-w-[320px] md:max-w-[380px] lg:w-[420px] h-[140px] sm:h-[200px] md:h-[240px] lg:h-[280px]">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 transform group-hover:scale-105"
+                  />
+                </div>
+
+                {/* Always visible View Code button */}
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-white text-stone-900 font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mt-3 hover:bg-stone-200 transition text-xs w-fit"
+                >
+                  <Github size={14} className="sm:size-[16px]" /> View Code
+                </a>
               </div>
 
-              {/* Always visible View Code button */}
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-white text-stone-900 font-semibold px-4 sm:px-5 py-2 rounded-full mt-4 hover:bg-stone-200 transition text-xs sm:text-sm"
-              >
-                <Github size={16} className="sm:size-[18px]" /> View Code
-              </a>
-            </div>
+              {/* Content Section - more space now */}
+              <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left space-y-3 sm:space-y-4 px-2 sm:px-0">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white w-full">
+                  {project.title}
+                </h3>
 
-            {/* Content Section */}
-            <div className="w-full lg:w-1/2 text-center lg:text-left px-2 sm:px-4 md:px-6 space-y-3 sm:space-y-5">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white break-words px-2 sm:px-0">
-                {project.title}
-              </h3>
+                <p className="text-stone-400 text-sm sm:text-sm md:text-base leading-relaxed sm:leading-loose w-full px-1 sm:px-0 text-left">
+                  {project.description}
+                </p>
 
-              <p className="text-stone-400 text-sm sm:text-base md:text-lg leading-relaxed sm:leading-loose mx-auto lg:mx-0 max-w-full break-words px-2 sm:px-0">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start px-2 sm:px-0">
-                {project.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-stone-800 text-stone-300 px-3 py-1.5 rounded-full text-xs font-medium border border-stone-700 hover:bg-stone-700 transition whitespace-nowrap"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center lg:justify-start w-full">
+                  {project.technologies.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="bg-stone-800 text-stone-300 px-2.5 py-1 rounded-full text-xs font-medium border border-stone-700 hover:bg-stone-700 transition whitespace-nowrap"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import profile from "../assets/image/profile2.jpg";
 import { DISCRIPTION_CONTENT } from "../constants";
-import { FiDownload } from "react-icons/fi";
+import { FiEye } from "react-icons/fi";
 
 const Description = () => {
   return (
@@ -11,7 +11,6 @@ const Description = () => {
       className="py-14 sm:py-20 md:py-24 bg-[#0a0a12] text-stone-100 overflow-hidden"
     >
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-center px-3 sm:px-6 lg:px-20 gap-10 sm:gap-16">
-        
         {/* Left Side - Text */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
@@ -40,14 +39,14 @@ const Description = () => {
             {/* Resume Download Button */}
             <div className="flex justify-center lg:justify-start">
               <a
-                href="/Karthika_KL_Full_Stack_Developer.pdf"
+                href="https://drive.google.com/file/d/1EU0kyP1GvCCieBJ3Ur2ov91y4KcRYEx_/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
                 className="inline-flex items-center gap-2 border border-stone-700 text-stone-300 hover:text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-stone-800 transition-all duration-300 text-xs sm:text-sm md:text-base shadow-md hover:shadow-xl hover:scale-105"
               >
-                <FiDownload className="text-base sm:text-lg" />
-                Download Resume
+                <FiEye className="text-base sm:text-lg" />
+                View Resume
               </a>
             </div>
           </div>
