@@ -40,7 +40,7 @@ const Description = () => {
             {/* Resume Download Button */}
             <div className="flex justify-center lg:justify-start">
               <a
-                href="/resume.pdf"
+                href="/Karthika_KL_Full_Stack_Developer.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
