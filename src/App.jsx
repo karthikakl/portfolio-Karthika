@@ -5,6 +5,7 @@ import Technologies from './components/Technologies'
 import Projects from './components/Projects'
 import Education from './components/Education'
 import Contact from './components/Contact'
+import Experience from './components/Experience'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div className='container mx-auto px-8'></div>
       <Navbar/>
       <Discription/>
+      <Experience/>
       <Education/>
       <Technologies/>
       <Projects/>
